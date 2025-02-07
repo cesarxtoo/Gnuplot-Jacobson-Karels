@@ -1,4 +1,4 @@
-Must have gnuplot installed and be on windows http://www.gnuplot.info/ . It'smportant to set Gnuplot as an enviroment variable during installation.
+Must have gnuplot installed and be on windows http://www.gnuplot.info/ . It's important to set Gnuplot as an enviroment variable during installation.
 
 
 
