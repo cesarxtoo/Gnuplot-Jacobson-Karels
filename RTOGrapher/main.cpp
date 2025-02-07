@@ -2,8 +2,8 @@
 #include <fstream>
 #include "graph.h"
 using namespace std;
-
-int* copiarArray(int array1[], int nElem) {
+//Auxilary function used to copy a dynamic array onto another, deletes array1[] from memory
+int* copyArray(int array1[], int nElem) {
 	int* retArray = new int[nElem];
 	for (int i = 0; i < nElem -1; i++) {
 		retArray[i] = array1[i];
@@ -14,31 +14,31 @@ int* copiarArray(int array1[], int nElem) {
 int main() {
 
 	
-	ifstream archivo;
-	string nombreArchivo;
+	ifstream file;
+	string fileName;
 
-	cout << "Introduce el nombre del archivo a abrir (solo admite archivos .dat, no incluir extension):\n";
+	cout << "Type in the name of the file you'd like to open (only admits .dat extensions):\n";
 
-	cin >> nombreArchivo;
-	nombreArchivo += ".dat";
+	cin >> fileName;
+	fileName += ".dat";
 
 
-	archivo.open(nombreArchivo);
-	if (archivo.is_open()) {
-		int aux, contador = 0;
-		int* valores = new int[contador];
-		while (archivo >> aux)
+	file.open(fileName);
+	if (file.is_open()) {
+		int aux, counter = 0;
+		int* values = new int[counter];
+		while (file >> aux)
 		{
-			contador++;
-			valores = copiarArray(valores, contador);
-			valores[contador - 1] = aux;
+			counter++;
+			values = copyArray(values, counter);
+			values[counter - 1] = aux;
 		}
-		archivo.close();
-		drawGraph(contador, valores);
-		delete[] valores;
+		file.close();
+		drawGraph(counter, values);
+		delete[] values;
 	}
 
-	else cout << "No existe/no se pudo abrir el archivo: " << nombreArchivo << endl;
+	else cout << "File " << fileName << " does not exist or couldn't be opened" << endl;
 	
 	return 0;
 }
